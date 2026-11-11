@@ -1,0 +1,73 @@
+study_id: sglt2_dka
+title: "SGLT2 inhibitors – diabetic ketoacidosis"
+definition_status: draft   # PT list is a candidate; frozen after PT discovery in milestone 2
+
+drug_group:
+  label: "SGLT2 inhibitors"
+  substances: [CANAGLIFLOZIN, DAPAGLIFLOZIN, EMPAGLIFLOZIN, ERTUGLIFLOZIN]
+  marketed_before_2004: false
+
+event_groups:
+  primary:
+    label: "Ketoacidosis (DKA, euglycaemic DKA, ketosis)"
+    pts:
+      - DIABETIC KETOACIDOSIS
+      - EUGLYCAEMIC DIABETIC KETOACIDOSIS
+      - KETOACIDOSIS
+      - KETOSIS
+      - DIABETIC KETOACIDOTIC HYPERGLYCAEMIC COMA
+  narrow:
+    label: "Diabetic ketoacidosis only"
+    pts:
+      - DIABETIC KETOACIDOSIS
+      - EUGLYCAEMIC DIABETIC KETOACIDOSIS
+      - KETOACIDOSIS
+
+regulatory_actions:
+  - agency: FDA
+    date: 2015-05-15
+    type: Drug Safety Communication
+    title: "FDA warns that SGLT2 inhibitors for diabetes may result in a serious condition of too much acid in the blood"
+    url: http://www.fda.gov/Drugs/DrugSafety/ucm446845.htm
+    archive_url: http://web.archive.org/web/20150520225355/http://www.fda.gov/Drugs/DrugSafety/ucm446845.htm
+    quote: "[ 05-15-2015 ] Safety Announcement"
+    primary: true
+    verified_on: 2026-10-31
+    note: "FDA cited 20 FAERS cases (March 2013 - June 2014). The original FDA page is no longer online."
+  - agency: EMA
+    date: 2015-06-11
+    type: Article 20 referral started
+    title: "Review of SGLT2 inhibitors requested by the European Commission"
+    url: https://www.ema.europa.eu/en/medicines/human/referrals/sglt2-inhibitors
+    quote: "Procedure start date 11/06/2015"
+    verified_on: 2026-11-10
+    note: "Section 'Key dates and outcomes'; the start announcement was first published 12/06/2015."
+  - agency: FDA
+    date: 2015-12-04
+    type: Drug Safety Communication (label change)
+    title: "FDA revises labels of SGLT2 inhibitors for diabetes to include warnings about too much acid in the blood and serious urinary tract infections"
+    url: https://www.fda.gov/Drugs/DrugSafety/ucm475463.htm
+    archive_url: http://web.archive.org/web/20151207045352/http://www.fda.gov:80/Drugs/DrugSafety/ucm475463.htm
+    quote: "Safety Announcement [12-4-2015]"
+    verified_on: 2026-11-10
+    note: "73 ketoacidosis cases March 2013 - May 2015."
+  - agency: EMA
+    date: 2016-02-11
+    type: PRAC recommendation
+    title: "SGLT2 inhibitors: PRAC makes recommendations to minimise risk of diabetic ketoacidosis"
+    url: https://www.ema.europa.eu/en/medicines/human/referrals/sglt2-inhibitors
+    quote: "PRAC recommendation date 11/02/2016"
+    verified_on: 2026-11-10
+    note: "News item published 12/02/2016."
+  - agency: EMA
+    date: 2016-02-25
+    type: CHMP opinion
+    title: "EMA confirms recommendations to minimise ketoacidosis risk with SGLT2 inhibitors for diabetes"
+    url: https://www.ema.europa.eu/en/medicines/human/referrals/sglt2-inhibitors
+    quote: "CHMP opinion date 25/02/2016"
+    verified_on: 2026-11-10
+    note: "Press release published 26/02/2016."
+
+caveats:
+  - "Confounding by indication: all patients have diabetes, which itself causes ketoacidosis."
+  - "The FDA warning was built on FAERS cases, so this is a case where the method should work."

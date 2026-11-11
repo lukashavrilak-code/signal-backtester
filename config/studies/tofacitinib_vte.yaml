@@ -1,0 +1,67 @@
+study_id: tofacitinib_vte
+title: "Tofacitinib – pulmonary embolism and venous thromboembolism"
+definition_status: draft   # PT list is a candidate; frozen after PT discovery in milestone 2
+
+drug_group:
+  label: "Tofacitinib"
+  substances: [TOFACITINIB]
+  marketed_before_2004: false
+
+event_groups:
+  primary:
+    label: "Pulmonary embolism"
+    pts:
+      - PULMONARY EMBOLISM
+      - PULMONARY THROMBOSIS
+  broad:
+    label: "Venous thromboembolism"
+    pts:
+      - PULMONARY EMBOLISM
+      - PULMONARY THROMBOSIS
+      - DEEP VEIN THROMBOSIS
+      - VENOUS THROMBOSIS
+      - VENOUS THROMBOSIS LIMB
+      - EMBOLISM VENOUS
+      - THROMBOSIS
+
+regulatory_actions:
+  - agency: FDA
+    date: 2019-02-25
+    type: Drug Safety Communication
+    title: "Safety trial finds risk of blood clots in the lungs and death with higher dose of tofacitinib (Xeljanz, Xeljanz XR) in rheumatoid arthritis patients; FDA to investigate"
+    url: https://www.fda.gov/Drugs/DrugSafety/ucm631871.htm
+    archive_url: http://web.archive.org/web/20190423031833/https://www.fda.gov/Drugs/DrugSafety/ucm631871.htm
+    quote: "[2-25-2019] The U.S. Food and Drug Administration (FDA) is alerting the public"
+    primary: true
+    verified_on: 2026-10-31
+    note: "Signal from the ORAL Surveillance randomised trial, not from spontaneous reports."
+  - agency: EMA
+    date: 2019-05-16
+    type: Article 20 referral started (temporary restrictions)
+    title: "Restrictions in use of Xeljanz while EMA reviews risk of blood clots in lungs"
+    url: https://www.ema.europa.eu/en/news/restrictions-use-xeljanz-while-ema-reviews-risk-blood-clots-lungs
+    verified_on: 2026-10-31
+    note: "PRAC meeting 13-16 May 2019; referral start date 16/05/2019."
+  - agency: FDA
+    date: 2019-07-26
+    type: Drug Safety Communication (Boxed Warning)
+    title: "Xeljanz, Xeljanz XR (tofacitinib): Drug Safety Communication - Due to an Increased Risk of Blood Clots and Death with Higher Dose"
+    url: https://www.fda.gov/safety/medical-product-safety-information/xeljanz-xeljanz-xr-tofacitinib-drug-safety-communication-due-increased-risk-blood-clots-and-death
+    quote: "[Posted 07/26/2019]"
+    verified_on: 2026-11-10
+  - agency: EMA
+    date: 2019-10-31
+    type: PRAC recommendation
+    title: "Xeljanz referral: PRAC recommendation"
+    url: https://www.ema.europa.eu/en/medicines/human/referrals/xeljanz
+    verified_on: 2026-10-31
+  - agency: FDA
+    date: 2021-09-01
+    type: Drug Safety Communication (class)
+    title: "FDA requires warnings about increased risk of serious heart-related events, cancer, blood clots, and death for JAK inhibitors"
+    url: https://www.fda.gov/drugs/drug-safety-and-availability/fda-requires-warnings-about-increased-risk-serious-heart-related-events-cancer-blood-clots-and-death
+    verified_on: 2026-10-31
+
+caveats:
+  - "Signal came from a randomised safety trial; spontaneous reports may not have shown it early."
+  - "Rheumatoid arthritis itself raises the risk of venous thromboembolism (confounding by indication)."

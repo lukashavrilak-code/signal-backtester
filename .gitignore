@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Secrets (never commit API keys)
+.env
+
+# Large or rebuildable data
+data/raw/
+data/interim/
+data/*.duckdb
+data/*.duckdb.wal
+
+# Built website
+_site/
+
+# Private working notes (kept local, not published)
+docs/PLAN.md
+signal-backtester-planning-prompt.md
+
+# Editors / OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store

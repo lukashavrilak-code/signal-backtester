@@ -1,0 +1,46 @@
+study_id: loperamide_cardiac
+title: "Loperamide – serious cardiac arrhythmias at high doses"
+definition_status: draft   # PT list is a candidate; frozen after PT discovery in milestone 2
+
+drug_group:
+  label: "Loperamide"
+  substances: [LOPERAMIDE]
+  marketed_before_2004: true   # first approved 1976
+
+event_groups:
+  primary:
+    label: "QT prolongation, ventricular arrhythmia, cardiac arrest, syncope"
+    pts:
+      - ELECTROCARDIOGRAM QT PROLONGED
+      - LONG QT SYNDROME
+      - TORSADE DE POINTES
+      - VENTRICULAR TACHYCARDIA
+      - VENTRICULAR FIBRILLATION
+      - VENTRICULAR ARRHYTHMIA
+      - CARDIAC ARREST
+      - CARDIO-RESPIRATORY ARREST
+      - SYNCOPE
+
+regulatory_actions:
+  - agency: FDA
+    date: 2016-06-07
+    type: Drug Safety Communication
+    title: "FDA warns about serious heart problems with high doses of the antidiarrheal medicine loperamide (Imodium), including from abuse and misuse"
+    url: https://www.fda.gov/Drugs/DrugSafety/ucm504617.htm
+    archive_url: http://web.archive.org/web/20160609033353/http://www.fda.gov/Drugs/DrugSafety/ucm504617.htm
+    quote: "[ 06-07-2016 ] Safety Announcement"
+    primary: true
+    verified_on: 2026-10-31
+    note: "48 cases 1976-2015. The original FDA page is no longer online; the archived copy shows the date."
+  - agency: FDA
+    date: 2018-01-30
+    type: Drug Safety Communication
+    title: "FDA limits packaging for anti-diarrhea medicine loperamide (Imodium) to encourage safe use"
+    url: https://www.fda.gov/files/FDA-limits-packaging-for-anti-diarrhea-medicine-loperamide-%28Imodium%29-to-encourage-safe-use_PDF.pdf
+    verified_on: 2026-10-31
+    note: "Date from '[1-30-2018] Safety Announcement' on page 1 of the FDA PDF."
+
+caveats:
+  - "Most cases involved intentional misuse at very high doses (opioid withdrawal)."
+  - "Mostly over-the-counter use, so the drug is often missing from reports (under-reporting)."
+  - "Marketed long before 2004, so an early signal may be left-censored."

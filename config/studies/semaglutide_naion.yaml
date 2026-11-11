@@ -1,0 +1,41 @@
+study_id: semaglutide_naion
+title: "Semaglutide – non-arteritic anterior ischaemic optic neuropathy (NAION)"
+definition_status: draft   # PT list is a candidate; frozen after PT discovery in milestone 2
+
+drug_group:
+  label: "Semaglutide (all formulations)"
+  substances: [SEMAGLUTIDE]
+  marketed_before_2004: false
+
+event_groups:
+  primary:
+    label: "Ischaemic optic neuropathy (NAION)"
+    pts:
+      - OPTIC ISCHAEMIC NEUROPATHY
+  broad:
+    label: "Ischaemic or other optic neuropathy"
+    pts:
+      - OPTIC ISCHAEMIC NEUROPATHY
+      - OPTIC NEUROPATHY
+
+regulatory_actions:
+  - agency: EMA
+    date: 2025-06-06
+    type: PRAC conclusion (signal)
+    title: "PRAC concludes eye condition NAION is a very rare side effect of semaglutide medicines Ozempic, Rybelsus and Wegovy"
+    url: https://www.ema.europa.eu/en/news/prac-concludes-eye-condition-naion-very-rare-side-effect-semaglutide-medicines-ozempic-rybelsus-wegovy
+    primary: true
+    verified_on: 2026-10-31
+    note: "PRAC meeting 2-5 June 2025; news published 6 June 2025."
+  - agency: MHRA
+    date: 2026-02-05
+    type: Drug Safety Update
+    title: "Semaglutide (Wegovy, Ozempic, Rybelsus): risk of NAION"
+    url: https://www.gov.uk/drug-safety-update/semaglutide-wegovy-ozempic-and-rybelsus-risk-of-non-arteritic-anterior-ischemic-optic-neuropathy-naion
+    verified_on: 2026-10-31
+    note: "url page in gov.uk."
+
+caveats:
+  - "No FDA Drug Safety Communication on NAION as of September 2026 (FDA DSC index checked 2026-10-31)."
+  - "Strong notoriety effect expected after the 2024 publication and media coverage."
+  - "Whether the US label mentions NAION is checked by the pipeline, not assumed."

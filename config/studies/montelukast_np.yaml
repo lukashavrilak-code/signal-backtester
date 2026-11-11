@@ -1,0 +1,75 @@
+study_id: montelukast_np
+title: "Montelukast – neuropsychiatric events"
+definition_status: draft   # PT list is a candidate; frozen after PT discovery in milestone 2
+
+drug_group:
+  label: "Montelukast"
+  substances: [MONTELUKAST]
+  marketed_before_2004: true   # approved February 1998
+
+event_groups:
+  primary:
+    label: "Suicidality and behaviour/mood changes"
+    pts:
+      - SUICIDAL IDEATION
+      - SUICIDE ATTEMPT
+      - COMPLETED SUICIDE
+      - SUICIDAL BEHAVIOUR
+      - INTENTIONAL SELF-INJURY
+      - DEPRESSION
+      - AGGRESSION
+      - AGITATION
+      - ANXIETY
+      - ABNORMAL BEHAVIOUR
+      - NIGHTMARE
+      - ABNORMAL DREAMS
+      - HALLUCINATION
+      - IRRITABILITY
+  narrow:
+    label: "Suicidality only"
+    pts:
+      - SUICIDAL IDEATION
+      - SUICIDE ATTEMPT
+      - COMPLETED SUICIDE
+      - SUICIDAL BEHAVIOUR
+      - INTENTIONAL SELF-INJURY
+
+regulatory_actions:
+  - agency: MAH
+    date: 2007-04-01
+    date_precision: month
+    type: Label update
+    title: "Depression added to the prescribing information as a post-marketing adverse event (Merck)"
+    url: https://webarchive.library.unt.edu/eot2008/20080916165810/http:/www.fda.gov/cder/drug/early_comm/montelukast.htm
+    verified_on: 2026-10-31
+    note: "Month as stated in the FDA early communication of March 2008."
+  - agency: MAH
+    date: 2007-10-01
+    date_precision: month
+    type: Label update
+    title: "Suicidality added to the prescribing information as a post-marketing adverse event (Merck)"
+    url: https://webarchive.library.unt.edu/eot2008/20080916165810/http:/www.fda.gov/cder/drug/early_comm/montelukast.htm
+    verified_on: 2026-10-31
+    note: "Month as stated in the FDA early communication of March 2008."
+  - agency: FDA
+    date: 2008-03-27
+    type: Early Communication
+    title: "Early Communication About an Ongoing Safety Review of Montelukast (Singulair)"
+    url: https://webarchive.library.unt.edu/eot2008/20080916165810/http:/www.fda.gov/cder/drug/early_comm/montelukast.htm
+    primary: true
+    verified_on: 2026-10-31
+    note: "Archived FDA page (UNT web archive)."
+  - agency: FDA
+    date: 2020-03-04
+    type: Drug Safety Communication (Boxed Warning)
+    title: "FDA requires Boxed Warning about serious mental health side effects for asthma and allergy drug montelukast (Singulair)"
+    url: https://www.fda.gov/drugs/drug-safety-communications/fda-requires-boxed-warning-about-serious-mental-health-side-effects-asthma-and-allergy-drug
+    archive_url: http://web.archive.org/web/20260407180102/https://www.fda.gov/drugs/drug-safety-communications/fda-requires-boxed-warning-about-serious-mental-health-side-effects-asthma-and-allergy-drug
+    quote: "3-4-2020 FDA Drug Safety Communication"
+    verified_on: 2026-10-31
+    note: "FDA reviewed FAERS from approval (Feb 1998) to May 2019; 82 completed suicides."
+
+caveats:
+  - "Montelukast is very often a concomitant drug in FAERS; only PS/SS roles count as exposure."
+  - "The label was changed by the manufacturer before the first public FDA communication."
+  - "Marketed before 2004, so an early signal may be left-censored."

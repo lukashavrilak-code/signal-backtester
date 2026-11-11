@@ -1,0 +1,51 @@
+study_id: fq_aortic
+title: "Fluoroquinolones – aortic aneurysm and dissection"
+definition_status: draft   # PT list is a candidate; frozen after PT discovery in milestone 2
+
+drug_group:
+  label: "Systemic fluoroquinolones"
+  substances: [CIPROFLOXACIN, LEVOFLOXACIN, MOXIFLOXACIN, OFLOXACIN, GEMIFLOXACIN, DELAFLOXACIN]
+  marketed_before_2004: true   # FAERS files start in 2004 -> early signals may be left-censored
+
+event_groups:
+  primary:
+    label: "Aortic aneurysm or dissection"
+    pts:
+      - AORTIC ANEURYSM
+      - AORTIC ANEURYSM RUPTURE
+      - AORTIC DISSECTION
+      - AORTIC DISSECTION RUPTURE
+      - AORTIC RUPTURE
+
+regulatory_actions:
+  - agency: EMA
+    date: 2018-09-06
+    type: PRAC signal recommendation
+    title: "PRAC recommendations on signals adopted at the 3-6 September 2018 PRAC meeting (product information update for systemic and inhaled fluoroquinolones)"
+    url: https://www.ema.europa.eu/en/documents/prac-recommendation/prac-recommendations-signals-adopted-3-6-september-2018-prac-meeting_en.pdf
+    primary: true
+    verified_on: 2026-10-31
+    note: "Date = last day of the PRAC meeting. Publication date of the document still to be recorded."
+  - agency: MAH
+    date: 2018-10-01
+    date_precision: month
+    type: DHPC (agreed with EMA)
+    title: "Direct healthcare professional communication on aortic aneurysm and dissection (Italian version, agreed with EMA and AIFA)"
+    url: "https://aifa.gov.it/documents/20142/0/Fluoroquinolones-DHPC_23.10.2018 (1).pdf"
+    quote: "Ottobre 2018 Fluorochinoloni ad uso sistemico ed inalatorio: rischio di aneurisma e dissezione dell'aorta"
+    verified_on: 2026-11-10
+    note: "Sent by the marketing authorisation holders in each EU country; the letter is dated by month only."
+  - agency: FDA
+    date: 2018-12-20
+    type: Drug Safety Communication
+    title: "FDA warns about increased risk of ruptures or tears in the aorta blood vessel with fluoroquinolone antibiotics in certain patients"
+    url: https://www.fda.gov/Drugs/DrugSafety/ucm628753.htm
+    archive_url: http://web.archive.org/web/20190207145027/https://www.fda.gov/Drugs/DrugSafety/ucm628753.htm
+    quote: "Safety Announcement [12-20-2018]"
+    verified_on: 2026-10-31
+    note: "The original FDA page is no longer online; the archived copy shows the date."
+
+caveats:
+  - "Fluoroquinolones were marketed long before 2004, so a signal present when the data begin is left-censored."
+  - "The regulatory action followed observational studies, not mainly spontaneous reports."
+  - "Ophthalmic and otic products are excluded through the drug dictionary and route."

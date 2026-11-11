@@ -1,0 +1,30 @@
+# Global settings for the Signal Backtester pipeline.
+# Every number that changes a result lives here, so it is visible and versioned in git.
+
+quarters:
+  start: 2004Q1        # first FAERS quarterly file (legacy AERS format)
+  end: latest          # "latest" = newest quarter available on the FDA download page
+
+thresholds:
+  prr_min: 2.0         # Evans et al. 2001
+  chi2_min: 4.0        # Evans et al. 2001
+  chi2_use_yates: true # Yates continuity correction (conservative; to be confirmed in the paper)
+  n_min: 3             # minimum number of reports with drug AND event (cell a)
+  ror_lower_min: 1.0   # lower bound of the 95% CI of the ROR must be above this
+
+exposure_roles: [PS, SS]   # FAERS role_cod: PS = primary suspect, SS = secondary suspect
+
+post_action_quarters: 12   # how many quarters after the primary regulatory action to keep in charts
+
+site:
+  base_url: /signal-backtester/
+
+llm:
+  model: null          # chosen in milestone 6 (OpenRouter model id with structured outputs)
+  temperature: 0.2
+  max_tokens: 1500
+
+author:
+  name: "[MY NAME]"
+  linkedin: "[LINKEDIN URL]"
+  cv: "[CV URL]"
