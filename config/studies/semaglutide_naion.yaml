@@ -6,6 +6,8 @@ drug_group:
   label: "Semaglutide (all formulations)"
   substances: [SEMAGLUTIDE]
   marketed_before_2004: false
+  approval_dates:              # Drugs@FDA, earliest original NDA approval (Ozempic)
+    SEMAGLUTIDE: 2017-12-05
 
 event_groups:
   primary:
@@ -20,12 +22,15 @@ event_groups:
 
 regulatory_actions:
   - agency: EMA
-    date: 2025-06-06
+    date: 2025-06-05
+    published_on: 2025-06-06
     type: PRAC conclusion (signal)
     title: "PRAC concludes eye condition NAION is a very rare side effect of semaglutide medicines Ozempic, Rybelsus and Wegovy"
     url: https://www.ema.europa.eu/en/news/prac-concludes-eye-condition-naion-very-rare-side-effect-semaglutide-medicines-ozempic-rybelsus-wegovy
+    archive_url: http://web.archive.org/web/20250606170642/https://www.ema.europa.eu/en/news/prac-concludes-eye-condition-naion-very-rare-side-effect-semaglutide-medicines-ozempic-rybelsus-wegovy
+    quote: "Meeting highlights from the Pharmacovigilance Risk Assessment Committee (PRAC) 2-5 June 2025"
     primary: true
-    verified_on: 2026-10-31
+    verified_on: 2026-11-10
     note: "PRAC meeting 2-5 June 2025; news published 6 June 2025."
   - agency: MHRA
     date: 2026-02-05

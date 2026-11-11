@@ -8,13 +8,23 @@ quarters:
 thresholds:
   prr_min: 2.0         # Evans et al. 2001
   chi2_min: 4.0        # Evans et al. 2001
-  chi2_use_yates: true # Yates continuity correction (conservative; to be confirmed in the paper)
+  chi2_use_yates: true # Yates continuity correction: our conservative choice (see METHODOLOGY)
   n_min: 3             # minimum number of reports with drug AND event (cell a)
   ror_lower_min: 1.0   # lower bound of the 95% CI of the ROR must be above this
 
 exposure_roles: [PS, SS]   # FAERS role_cod: PS = primary suspect, SS = secondary suspect
 
 post_action_quarters: 12   # how many quarters after the primary regulatory action to keep in charts
+
+# Pre-registered rule for the one-sentence result on the home page.
+# Studies that are left-censored (signal already present in 2004Q1) are counted separately
+# and never enter the median lead time.
+headline:
+  criterion: evans                   # evans | ror
+  drug_key: class                    # the whole drug group of the study
+  event_key: primary
+  first_signal_rule: first_crossing  # the sustained result is always shown next to it
+  median_min_studies: 3              # with fewer uncensored studies, show individual values
 
 site:
   base_url: /signal-backtester/

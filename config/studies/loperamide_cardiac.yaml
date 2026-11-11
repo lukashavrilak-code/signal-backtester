@@ -6,6 +6,8 @@ drug_group:
   label: "Loperamide"
   substances: [LOPERAMIDE]
   marketed_before_2004: true   # first approved 1976
+  approval_dates:              # Drugs@FDA, earliest original NDA approval
+    LOPERAMIDE: 1976-12-28
 
 event_groups:
   primary:

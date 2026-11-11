@@ -9,6 +9,7 @@ Later milestones add: download, load, qa, compute, screen, labels, export, site,
 import argparse
 import sys
 
+from backtester.approvals import approval_status
 from backtester.config import load_settings, load_studies
 from backtester.db import connect
 from backtester.metrics import TwoByTwo, evaluate
@@ -63,22 +64,32 @@ def cmd_validate_config(args: argparse.Namespace) -> None:
 
 
 def cmd_check_sources(args: argparse.Namespace) -> None:
-    checks = check_sources(load_studies())
-    to_confirm = 0
+    studies = load_studies()
+    print("Regulatory milestones (quote = searched automatically in the source):\n")
+    checks = check_sources(studies)
     for check in checks:
         a = check.action
-        done = a.verified_on is not None
-        to_confirm += not done
-        status = "OK      " if done else "CONFIRM "
-        print(f"{status} {check.study_id} | {a.agency} {a.date} ({a.date_precision}) | {a.type}")
-        print(f"         url [{check.url_status}]: {a.url or '-'}")
-        if a.archive_url:
-            print(f"         archive_url: {a.archive_url}")
-        elif check.wayback_url:
-            print(f"         suggested archive_url: {check.wayback_url}")
-        if a.quote:
-            print(f'         quote: "{a.quote}"')
-    print(f"\n{len(checks)} milestones, {to_confirm} still need your confirmation (verified_on).")
+        mark = "LOOK" if check.needs_attention else "ok  "
+        verified = a.verified_on or "NOT VERIFIED"
+        print(f"{mark} {check.study_id} | {a.agency} {a.date} | {a.type} | verified: {verified}")
+        print(f"     quote: {check.quote_status} | url status: {check.url_status}")
+        if check.needs_attention:
+            print(f"     open: {a.archive_url or a.url or '-'}")
+            if a.quote:
+                print(f'     search for: "{a.quote}"')
+            if check.wayback_url:
+                print(f"     suggested archive_url: {check.wayback_url}")
+
+    print("\nFirst US approval dates (compared with Drugs@FDA):\n")
+    mismatches = 0
+    for study in studies:
+        for substance, date in study.drug_group.approval_dates.items():
+            status = approval_status(substance, date)
+            mismatches += status != "OK"
+            print(f"{'ok  ' if status == 'OK' else 'LOOK'} {substance:<15} {date}  {status}")
+
+    to_look = sum(check.needs_attention for check in checks) + mismatches
+    print(f"\n{to_look} item(s) marked LOOK need a manual check; everything else was confirmed.")
 
 
 def main() -> None:
@@ -97,7 +108,9 @@ def main() -> None:
     validate = sub.add_parser("validate-config", help="check settings and study files")
     validate.set_defaults(func=cmd_validate_config)
 
-    sources = sub.add_parser("check-sources", help="check links of regulatory milestones")
+    sources = sub.add_parser(
+        "check-sources", help="check links, quotes and approval dates against their sources"
+    )
     sources.set_defaults(func=cmd_check_sources)
 
     args = parser.parse_args()

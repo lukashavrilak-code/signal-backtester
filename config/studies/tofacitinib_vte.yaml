@@ -6,6 +6,8 @@ drug_group:
   label: "Tofacitinib"
   substances: [TOFACITINIB]
   marketed_before_2004: false
+  approval_dates:              # Drugs@FDA, earliest original NDA approval
+    TOFACITINIB: 2012-11-06
 
 event_groups:
   primary:

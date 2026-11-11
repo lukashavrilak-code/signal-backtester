@@ -54,11 +54,22 @@ class Author(BaseModel):
     cv: str
 
 
+class Headline(BaseModel):
+    """Pre-registered rule for the one-sentence result on the home page."""
+
+    criterion: Literal["evans", "ror"]
+    drug_key: str  # "class" = the whole drug group of a study
+    event_key: str
+    first_signal_rule: Literal["first_crossing", "sustained"]
+    median_min_studies: int = Field(ge=1)  # fewer uncensored studies -> no median
+
+
 class Settings(BaseModel):
     quarters: Quarters
     thresholds: Thresholds
     exposure_roles: list[Literal["PS", "SS", "C", "I"]]
     post_action_quarters: int
+    headline: Headline
     site: dict[str, str]
     llm: Llm
     author: Author
@@ -71,6 +82,17 @@ class DrugGroup(BaseModel):
     label: str
     substances: list[str] = Field(min_length=1)
     marketed_before_2004: bool  # True -> early signals may be left-censored
+    # First US approval per substance (Drugs@FDA, earliest original NDA approval).
+    approval_dates: dict[str, dt.date]
+
+    @model_validator(mode="after")
+    def one_approval_date_per_substance(self) -> "DrugGroup":
+        if set(self.approval_dates) != set(self.substances):
+            raise ValueError(
+                f"approval_dates must list exactly the substances {self.substances}, "
+                f"got {sorted(self.approval_dates)}"
+            )
+        return self
 
 
 class EventGroup(BaseModel):
@@ -86,8 +108,11 @@ class EventGroup(BaseModel):
 class RegulatoryAction(BaseModel):
     # MAH = label change made by the marketing authorisation holder
     agency: Literal["FDA", "EMA", "MHRA", "MAH"]
+    # Decision date printed in the source (for a PRAC meeting: its last day).
+    # Lead time is always computed from this date.
     date: dt.date
     date_precision: Literal["day", "month"] = "day"
+    published_on: dt.date | None = None  # when the source came out later than `date`
     type: str
     title: str
     url: str | None = None
@@ -121,6 +146,10 @@ class Study(BaseModel):
             raise ValueError(f"{self.study_id}: the primary action must be by FDA or EMA")
         if primary.date_precision != "day" or primary.verified_on is None:
             raise ValueError(f"{self.study_id}: the primary action needs a verified exact date")
+        if not primary.quote or not primary.archive_url:
+            raise ValueError(
+                f"{self.study_id}: the primary action needs a quote and an archive_url"
+            )
         return self
 
     @property

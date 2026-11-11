@@ -47,8 +47,9 @@ was the suspect drug in only 1–16% of them.
 **Signal criteria** (thresholds in `config/settings.yaml`):
 
 - *Evans criteria* (Evans, Waller & Davis, *Pharmacoepidemiol Drug Saf* 2001;10:483–486):
-  PRR ≥ 2, χ² ≥ 4 and a ≥ 3. We use the Yates-corrected χ², the more conservative choice
-  *(to confirm against the original paper)*.
+  PRR ≥ 2, χ² ≥ 4 and a ≥ 3. We use the Yates-corrected χ². This is our own conservative
+  choice (web sources disagree on whether Evans et al. used the correction); the uncorrected χ²
+  is reported as a sensitivity result.
 - *ROR criterion* (EudraVigilance practice): lower bound of the 95% CI of the ROR > 1 and a ≥ 3.
 
 Worked example (also a unit test): a = 10, b = 90, c = 40, d = 860 gives PRR 2.25
@@ -59,11 +60,41 @@ so both criteria are met.
 
 ## 6. Case study definitions
 
-Each study is defined in `config/studies/<study_id>.yaml`: substances, MedDRA PT groups,
-regulatory milestones with sources and verification dates, and study-specific caveats.
-The **primary regulatory date** is the earliest official public communication by FDA or EMA
-that is specific to the drug–event pair. For a PRAC meeting the last meeting day is used.
-Label changes initiated by the manufacturer and later actions are shown as secondary markers.
+Each study is defined in `config/studies/<study_id>.yaml`: substances, first US approval
+dates, MedDRA PT groups, regulatory milestones with sources and verification dates, and
+study-specific caveats.
+
+**Primary regulatory date.** The earliest FDA or EMA action that is specific to the
+drug–event pair (Drug Safety Communication, early communication, PRAC recommendation).
+The date used is the decision date printed in the official source: for a PRAC meeting its
+last day, for an FDA communication the date printed on it. When the document was published
+later, that date is recorded as `published_on`. Lead time is always computed from the
+decision date. This is the conservative choice, because an earlier date gives a shorter lead
+time. Label changes initiated by the manufacturer and later actions are shown as secondary
+markers.
+
+**How the dates are verified.** Every primary action carries a verbatim `quote` from its
+source that shows the date, and an `archive_url` (a Wayback Machine copy), so the source
+stays checkable when the agency moves the page. The command `backtester check-sources`
+downloads each source (HTML or PDF) and confirms that the quote appears in it. The author
+reads every source once and records the date of that check as `verified_on`; the command
+then confirms on every run that the cited text is still there.
+
+**First US approval dates** come from Drugs@FDA (openFDA `drug/drugsfda`): the earliest
+approval of an original NDA that contains the substance. `check-sources` compares the
+dates in the study files with the database.
+
+**Fluoroquinolone class.** The class follows the "List of FDA-approved Systemic
+Fluoroquinolones" in the FDA Drug Safety Communication of 20 December 2018
+(ciprofloxacin, delafloxacin, gemifloxacin, levofloxacin, moxifloxacin, ofloxacin), because
+the data are US FAERS reports. Norfloxacin, which is in the scope of the EU recommendation,
+is not in that list and is not included.
+
+**Headline rule** (pre-registered in `config/settings.yaml`, block `headline`): the number
+of studies in which the Evans criteria were met for the whole drug group and the primary
+event group before the primary action; the median lead time uses only studies that are not
+left-censored, and is replaced by the individual values when fewer than three such studies
+remain. Left-censored studies are counted separately.
 
 PT groups are our own documented groupings (MedDRA SMQs are licensed and not used).
 They are locked (`definition_status: frozen`) before any results are computed.

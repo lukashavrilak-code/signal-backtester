@@ -6,6 +6,8 @@ drug_group:
   label: "Montelukast"
   substances: [MONTELUKAST]
   marketed_before_2004: true   # approved February 1998
+  approval_dates:              # Drugs@FDA, earliest original NDA approval
+    MONTELUKAST: 1998-02-20
 
 event_groups:
   primary:
@@ -41,6 +43,8 @@ regulatory_actions:
     type: Label update
     title: "Depression added to the prescribing information as a post-marketing adverse event (Merck)"
     url: https://webarchive.library.unt.edu/eot2008/20080916165810/http:/www.fda.gov/cder/drug/early_comm/montelukast.htm
+    archive_url: http://web.archive.org/web/20080403063002/http://www.fda.gov:80/cder/drug/early_comm/montelukast.htm
+    quote: "depression (April 2007)"
     verified_on: 2026-10-31
     note: "Month as stated in the FDA early communication of March 2008."
   - agency: MAH
@@ -49,6 +53,8 @@ regulatory_actions:
     type: Label update
     title: "Suicidality added to the prescribing information as a post-marketing adverse event (Merck)"
     url: https://webarchive.library.unt.edu/eot2008/20080916165810/http:/www.fda.gov/cder/drug/early_comm/montelukast.htm
+    archive_url: http://web.archive.org/web/20080403063002/http://www.fda.gov:80/cder/drug/early_comm/montelukast.htm
+    quote: "suicidality (suicidal thinking and behavior) (October 2007)"
     verified_on: 2026-10-31
     note: "Month as stated in the FDA early communication of March 2008."
   - agency: FDA
@@ -56,9 +62,11 @@ regulatory_actions:
     type: Early Communication
     title: "Early Communication About an Ongoing Safety Review of Montelukast (Singulair)"
     url: https://webarchive.library.unt.edu/eot2008/20080916165810/http:/www.fda.gov/cder/drug/early_comm/montelukast.htm
+    archive_url: http://web.archive.org/web/20080403063002/http://www.fda.gov:80/cder/drug/early_comm/montelukast.htm
+    quote: "Date created: March 27, 2008"
     primary: true
     verified_on: 2026-10-31
-    note: "Archived FDA page (UNT web archive)."
+    note: "Archived FDA page (UNT web archive and Wayback Machine); the date is in the page footer."
   - agency: FDA
     date: 2020-03-04
     type: Drug Safety Communication (Boxed Warning)

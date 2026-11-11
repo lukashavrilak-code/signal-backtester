@@ -6,6 +6,13 @@ drug_group:
   label: "Systemic fluoroquinolones"
   substances: [CIPROFLOXACIN, LEVOFLOXACIN, MOXIFLOXACIN, OFLOXACIN, GEMIFLOXACIN, DELAFLOXACIN]
   marketed_before_2004: true   # FAERS files start in 2004 -> early signals may be left-censored
+  approval_dates:              # Drugs@FDA, earliest original NDA approval
+    CIPROFLOXACIN: 1987-10-22
+    LEVOFLOXACIN: 1996-12-20
+    MOXIFLOXACIN: 1999-12-10
+    OFLOXACIN: 1990-12-28
+    GEMIFLOXACIN: 2003-04-04
+    DELAFLOXACIN: 2017-06-19
 
 event_groups:
   primary:
@@ -22,16 +29,20 @@ regulatory_actions:
     date: 2018-09-06
     type: PRAC signal recommendation
     title: "PRAC recommendations on signals adopted at the 3-6 September 2018 PRAC meeting (product information update for systemic and inhaled fluoroquinolones)"
+    published_on: 2018-10-01
     url: https://www.ema.europa.eu/en/documents/prac-recommendation/prac-recommendations-signals-adopted-3-6-september-2018-prac-meeting_en.pdf
+    archive_url: http://web.archive.org/web/20240216020427/https://www.ema.europa.eu/en/documents/prac-recommendation/prac-recommendations-signals-adopted-3-6-september-2018-prac-meeting_en.pdf
+    quote: "EPITT No 18651 PRAC rapporteur(s) Martin Huber (DE) Date of adoption 6 September 2018"
     primary: true
     verified_on: 2026-10-31
-    note: "Date = last day of the PRAC meeting. Publication date of the document still to be recorded."
+    note: "Section 1.4 (fluoroquinolones for systemic and inhaled use). Date = date of adoption = last day of the PRAC meeting. published_on = '1 October 2018' on page 1, which the document calls the intended publication date."
   - agency: MAH
     date: 2018-10-01
     date_precision: month
     type: DHPC (agreed with EMA)
     title: "Direct healthcare professional communication on aortic aneurysm and dissection (Italian version, agreed with EMA and AIFA)"
     url: "https://aifa.gov.it/documents/20142/0/Fluoroquinolones-DHPC_23.10.2018 (1).pdf"
+    archive_url: http://web.archive.org/web/20211208195843/https://www.aifa.gov.it/documents/20142/0/Fluoroquinolones-DHPC_23.10.2018%20(1).pdf
     quote: "Ottobre 2018 Fluorochinoloni ad uso sistemico ed inalatorio: rischio di aneurisma e dissezione dell'aorta"
     verified_on: 2026-11-10
     note: "Sent by the marketing authorisation holders in each EU country; the letter is dated by month only."
@@ -49,3 +60,4 @@ caveats:
   - "Fluoroquinolones were marketed long before 2004, so a signal present when the data begin is left-censored."
   - "The regulatory action followed observational studies, not mainly spontaneous reports."
   - "Ophthalmic and otic products are excluded through the drug dictionary and route."
+  - "Class membership follows the 'List of FDA-approved Systemic Fluoroquinolones' in the FDA Drug Safety Communication of 2018-12-20, because the data are US FAERS reports. Norfloxacin, which is in the scope of the EU recommendation, is not in that list (no longer marketed in the US) and is not included."
